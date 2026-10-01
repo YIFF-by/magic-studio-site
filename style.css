@@ -3,3 +3,44 @@
 @media(max-width:720px){.download-row{grid-template-columns:1fr}.download-name{grid-column:auto}.download-action{text-align:left}.download-links{justify-content:flex-start}.download-disclosure{max-width:none}}
 
 .resolve-demo{width:min(340px,100%);padding:20px;border:1px solid #594332;border-radius:10px;background:#241c16}.resolve-demo-title{display:flex;justify-content:space-between;gap:16px;font-size:10px;color:#c7b49f;margin-bottom:18px}.resolve-track{display:flex;align-items:center;gap:12px;margin:8px 0}.resolve-track small{width:40px;font-size:10px;color:#baa18a}.resolve-track>div{display:flex;gap:6px;flex:1;height:25px}.resolve-track i{display:block;background:#c2976d;width:26%;border-radius:3px}.resolve-track i:nth-child(2){margin-left:8%;width:25%}.resolve-track i:nth-child(3){width:22%}.resolve-track.aroll i{background:#766650;width:52%}.resolve-track.aroll i:nth-child(2){margin-left:0;width:48%}.resolve-track.audio i{width:100%;background:#536953}.resolve-demo p{color:#baa18a;font-size:10px;margin-top:16px}.workflow-steps>div{padding-right:20px}.workflow-steps h3{font-size:23px}.workflow-steps>div:not(:last-child):after{right:7px;font-size:19px}.orb-product:hover{transform:none;border-color:#57412e}@media(min-width:721px) and (max-width:1000px){.workflow-steps{grid-template-columns:1fr 1fr;gap:32px}.workflow-steps>div:nth-child(3){border:0;padding-left:0}.workflow-steps>div:nth-child(2):after{content:none}}
+
+/* Site navigation */
+.nav{width:calc(100% - 120px);max-width:1200px;height:88px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;gap:28px;border-bottom:1px solid var(--line)}
+.nav .brand{justify-self:start;gap:12px;font-size:22px;font-weight:600;letter-spacing:-.025em;min-height:44px}
+.nav .brand-mark{display:grid;place-items:center;width:40px;height:40px;background:var(--soft);border-radius:10px;color:var(--accent)}
+.nav .brand-mark svg{width:28px;height:28px;stroke-width:1.5}
+.nav nav{align-items:center;gap:8px;color:var(--muted);font-size:14px}
+.nav nav a{position:relative;display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:6px;transition:color .18s ease,background .18s ease}
+.nav nav a:hover{color:var(--text);background:var(--panel)}
+.nav nav a:after{content:"";position:absolute;bottom:5px;left:18px;right:18px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .18s ease}
+.nav nav a:hover:after,.nav nav a:focus-visible:after{transform:scaleX(1)}
+.nav-contact{justify-self:end;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:8px;font-size:12px;color:var(--muted);transition:color .18s ease,border-color .18s ease}
+.nav-contact svg{width:16px;height:16px;transition:transform .18s ease}
+.nav-contact:hover{border-color:var(--accent);color:var(--accent)}
+.nav-contact:hover svg{transform:translate(2px,-2px)}
+@media(max-width:1000px){.nav{width:calc(100% - 64px);gap:16px}.nav nav a{padding:0 12px}.nav nav a:after{left:12px;right:12px}.nav .brand{font-size:20px}}
+@media(max-width:720px){.nav{width:calc(100% - 40px);height:auto;min-height:122px;padding:14px 0 8px;grid-template-columns:1fr auto;column-gap:10px;row-gap:8px}.nav .brand{font-size:19px;gap:9px}.nav .brand-mark{width:34px;height:34px;border-radius:8px}.nav .brand-mark svg{width:25px;height:25px}.nav-contact{grid-column:2;grid-row:1;min-height:44px;padding:0 10px;gap:7px;font-size:11px}.nav nav{grid-column:1/-1;grid-row:2;justify-content:space-between;gap:12px;font-size:13px}.nav nav a{flex:1;min-height:44px;padding:0 12px}.nav nav a:after{left:30%;right:30%}}
+@media(max-width:370px){.nav .brand{font-size:17px;gap:7px}.nav .brand-mark{width:30px;height:30px}.nav-contact{padding:0 8px;gap:5px}}
+@media(prefers-reduced-motion:reduce){.nav a,.nav a:after,.nav-contact svg{transition:none}}
+
+/* Common questions */
+.help{display:grid;grid-template-columns:minmax(230px,.7fr) minmax(0,1.5fr);gap:72px;align-items:start}
+.help h2{font-size:clamp(28px,3vw,38px);line-height:1.4;margin:0}
+.faq-list{border-top:1px solid var(--line);min-width:0}
+.help details{padding:0;border-bottom:1px solid var(--line)}
+.help summary{min-height:76px;padding:22px 0;gap:24px;font-size:16px;line-height:1.6;transition:color .18s ease}
+.help summary:hover,.help details[open] summary{color:var(--accent)}
+.help summary:after,.help details[open] summary:after{content:none}
+.faq-toggle{width:22px;height:22px;flex-shrink:0;color:var(--accent);stroke-width:1.5}
+.help details[open] .faq-toggle{transform:rotate(45deg)}
+.faq-answer{padding:0 46px 24px 0;max-width:650px;color:var(--muted);font-size:14px;line-height:1.9;overflow-wrap:anywhere}
+.help .faq-answer p{margin:0;max-width:none;font-size:inherit;line-height:inherit}
+.help .faq-answer p+p{margin-top:12px}
+.install-guide+.install-guide{margin-top:22px}
+.install-guide h3{font-size:14px;font-weight:550;color:var(--text);line-height:1.7;margin:0 0 8px}
+.install-guide ol{margin:0;padding-left:22px}
+.install-guide li{padding-left:3px;margin-top:5px}
+.install-guide li::marker{color:var(--accent);font-size:12px}
+@media(max-width:1000px){.help{gap:36px;grid-template-columns:minmax(200px,.7fr) minmax(0,1.5fr)}}
+@media(max-width:720px){.help{grid-template-columns:1fr;gap:26px}.help-heading h2 br{display:none}.help h2{font-size:27px}.help summary{min-height:70px;padding:20px 0;gap:16px;font-size:15px}.faq-answer{padding:0 0 22px;font-size:13px;max-width:none}.faq-toggle{width:20px;height:20px}}
+@media(prefers-reduced-motion:reduce){.help summary{transition:none}}
