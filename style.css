@@ -44,3 +44,20 @@
 @media(max-width:1000px){.help{gap:36px;grid-template-columns:minmax(200px,.7fr) minmax(0,1.5fr)}}
 @media(max-width:720px){.help{grid-template-columns:1fr;gap:26px}.help-heading h2 br{display:none}.help h2{font-size:27px}.help summary{min-height:70px;padding:20px 0;gap:16px;font-size:15px}.faq-answer{padding:0 0 22px;font-size:13px;max-width:none}.faq-toggle{width:20px;height:20px}}
 @media(prefers-reduced-motion:reduce){.help summary{transition:none}}
+
+/* Bounded surface motion; default content remains visible without JavaScript. */
+.motion-surface{transform:perspective(1000px) translate3d(var(--motion-x,0px),var(--motion-y,0px),0) rotateX(var(--motion-rx,0deg)) rotateY(var(--motion-ry,0deg));transition:transform 260ms cubic-bezier(.16,1,.3,1),border-color 220ms ease,background-color 180ms ease;backface-visibility:hidden}
+.product{position:relative;isolation:isolate}
+.product:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at var(--light-x,50%) var(--light-y,20%),rgba(237,172,114,.09),transparent 65%);opacity:0;transition:opacity 220ms ease}
+.product.pointer-engaged{border-color:#896347}
+.product.pointer-engaged:before{opacity:1}
+.motion-surface.pointer-engaged{transition-duration:180ms}
+.orb-product.motion-surface:hover{transform:perspective(1000px) translate3d(var(--motion-x,0px),var(--motion-y,0px),0) rotateX(var(--motion-rx,0deg)) rotateY(var(--motion-ry,0deg));border-color:#896347}
+.workflow-steps>div{transition:color 180ms ease}
+.workflow-steps>div.pointer-engaged h3{color:var(--accent)}
+.button:active,.nav a:active{scale:.97;transition:scale 100ms ease}
+.faq-toggle{transition:transform 180ms cubic-bezier(.16,1,.3,1)}
+@media(prefers-reduced-motion:reduce){.motion-surface,.orb-product.motion-surface:hover{transform:none}.product:before{display:none}.button:active,.nav a:active{scale:1}.faq-toggle{transition:none}}
+
+@media(hover:hover) and (pointer:fine){.button.motion-surface:hover{transform:perspective(1000px) translate3d(var(--motion-x,0px),calc(var(--motion-y,0px) - 2px),0) rotateX(var(--motion-rx,0deg)) rotateY(var(--motion-ry,0deg))}}
+@media(prefers-reduced-motion:reduce){.button.motion-surface:hover{transform:none}}
