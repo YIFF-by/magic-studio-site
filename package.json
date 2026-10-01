@@ -1,0 +1,12 @@
+{
+  "name": "magic-studio-site",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 4321 --bind 127.0.0.1",
+    "sync:releases": "node scripts/sync-releases.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  }
+}

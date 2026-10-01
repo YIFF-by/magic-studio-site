@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "products": [
+    {
+      "id": "magicboard",
+      "name": "MagicBoard",
+      "repository": "YIFF-by/magicboard-site",
+      "version": "1.0.30",
+      "publishedAt": "2026-10-01",
+      "format": "DMG",
+      "sizeBytes": 539755240,
+      "downloadUrl": "https://github.com/YIFF-by/magicboard-site/releases/download/v1.0.30/MagicBoard-v1.0.30-macOS-universal.dmg",
+      "checksumUrl": "https://github.com/YIFF-by/magicboard-site/releases/download/v1.0.30/MagicBoard-v1.0.30-macOS-universal.dmg.sha256",
+      "guideUrl": "https://yiff-by.github.io/magicboard-site/",
+      "historyUrl": "https://github.com/YIFF-by/magicboard-site/releases",
+      "installNote": "macOS 13.5 及以上。打开 DMG，将 MagicBoard 拖入应用程序。当前未公证，请按系统提示允许打开。"
+    },
+    {
+      "id": "magicfile",
+      "name": "MagicFile",
+      "repository": "YIFF-by/magicfile-site",
+      "version": "0.13.5",
+      "publishedAt": "2026-10-01",
+      "format": "DMG",
+      "sizeBytes": 187677892,
+      "downloadUrl": "https://github.com/YIFF-by/magicfile-site/releases/download/v0.13.5/MagicFile-v0.13.5-macOS-universal.dmg",
+      "checksumUrl": "https://github.com/YIFF-by/magicfile-site/releases/download/v0.13.5/MagicFile-v0.13.5-macOS-universal.dmg.sha256",
+      "guideUrl": "https://yiff-by.github.io/magicfile-site/",
+      "historyUrl": "https://github.com/YIFF-by/magicfile-site/releases",
+      "installNote": "macOS 13.5 及以上。当前未公证，如被拦截请按产品官网指引允许打开。"
+    }
+  ]
+}

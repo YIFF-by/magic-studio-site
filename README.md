@@ -1,25 +1,19 @@
 # Magic Studio
 
-Static product and download website. No framework or npm dependencies.
+Public product and download website: https://yiff-by.github.io/magic-studio-site/
 
-## Preview
+## Preview and update
 
-Run `npm start`, then open http://127.0.0.1:4321. Use HTTP rather than double-clicking the HTML because download metadata is loaded from JSON.
+Run `npm start` and open http://127.0.0.1:4321. The site uses static HTML/CSS/JavaScript without npm dependencies.
 
-## Build
+Before publishing product updates, run `npm run sync:releases`, `npm run check`, and `npm run build`. The sync script reads the latest stable public releases of MagicBoard and MagicFile, prefers uploaded macOS universal DMG files and requires matching SHA-256 files. Failed lookups preserve the previous manifest.
 
-`npm run sync:releases` reads the latest stable public GitHub releases for MagicBoard and MagicFile. It requires matching uploaded macOS universal assets and SHA-256 files; if either product lookup fails, the current manifest remains unchanged. `npm run check` verifies local links, product status and metadata. `npm run build` copies only public site files into `_site`.
+GitHub Pages publishes from the `main` branch root with `.nojekyll`. Website commits automatically redeploy the website. A release in another product repository does not by itself update this repository: sync and commit the new `data/releases.json` after publishing a product.
 
-## Publish to GitHub Pages
+`examples/pages-workflow.yml` is an optional GitHub Actions deployment template for future use. It is not an active workflow. Enabling it requires the appropriate workflow permission and setting Pages to GitHub Actions; the current deployment uses branch publishing.
 
-Create a public website repository (suggested name: `magic-studio-site`), push to its `main` branch, and select GitHub Actions under Settings → Pages → Source. The included workflow syncs public release metadata, checks and deploys the site on website pushes, manual runs, or `repository_dispatch` events of type `product-released`.
+## Product boundaries
 
-Product releases in other repositories do not automatically trigger this website. After a product's release assets finish uploading and verification, its publishing script/workflow must send a `product-released` repository dispatch to this website repository. The sender needs a narrowly scoped credential that can dispatch to the target repository; never put that credential in browser code. Until this is wired up, run this website's workflow manually after product releases.
+MagicShot is WeChat only, marked 即将上线 without a desktop, search or download entry. MagicResolve content and delivery format remain unconfirmed. Only public release files are linked; project and camera media stay with the local products. Board/File screenshots come from their existing product materials.
 
-MagicShot is WeChat only and displays 即将上线 without a search or download entry. MagicResolve content and delivery format await confirmation; no download is fabricated. The website does not use the local MagicBoard 1.0.30 preview package as a public release.
-
-## Content
-
-Update `index.html` for product copy and `data/releases.json` for product repositories and installation notes. Product screenshots are copied from existing MagicBoard/MagicFile materials. The on-site camera record and timeline graphics are labeled feature illustration / preview pending, not screenshots.
-
-This checkout is a local preview. Public website repository: https://github.com/YIFF-by/magic-studio-site. GitHub Pages deployment is managed by the included workflow.
+Repository: https://github.com/YIFF-by/magic-studio-site
