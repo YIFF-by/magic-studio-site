@@ -14,6 +14,6 @@ GitHub Pages publishes from the `main` branch root with `.nojekyll`. Website com
 
 ## Product boundaries
 
-MagicShot is WeChat only, marked 内测中待上线 without a desktop, search or download entry. MagicResolve is a macOS DaVinci Resolve Studio plugin distributed as PKG, verified on Apple Silicon with Studio 21.1. Only public release files are linked; project and camera media stay with the local products. Board/File screenshots come from their existing product materials. Resolve uses its actual logo and a labeled feature diagram; no private project evidence is published. Product cards have no repeated download jumps. The download rows show support details and a single direct download button.
+MagicShot is WeChat only, marked 内测中待上线 without a desktop, search or download entry. MagicResolve is a macOS DaVinci Resolve Studio plugin distributed as PKG, verified on Apple Silicon with Studio 21.1. Only public release files are linked; project and camera media stay with the local products. All four product demonstrations are styled interface illustrations based on their workflows, with generic sample data. Resolve uses the current v2 logo; no private project evidence is published. Product cards have no repeated download jumps. The download rows show support details and a single direct download button.
 
 Repository: https://github.com/YIFF-by/magic-studio-site
