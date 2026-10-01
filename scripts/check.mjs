@@ -14,7 +14,7 @@ for (const product of data.products) {
   assert.equal(product.checksumUrl, `${product.downloadUrl}.sha256`);
 }
 const shot = html.split('id="magicshot"')[1].split('</article>')[0];
-assert(shot.includes('即将上线') && !shot.includes('href='), 'MagicShot must have no download/search entry');
+assert(shot.includes('内测中待上线') && !shot.includes('href='), 'MagicShot must have no download/search entry');
 assert(!html.includes('获取 MagicBoard') && !html.includes('获取 MagicFile'), 'Product cards must not repeat download jumps');
 const script = await readFile(new URL('site.js', root), 'utf8');
 assert(!script.includes('download-links'), 'No auxiliary download links');
