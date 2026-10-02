@@ -16,7 +16,7 @@ for (const product of data.products) {
 const shot = html.split('id="magicshot"')[1].split('</article>')[0];
 assert(shot.includes('内测中待上线') && !shot.includes('href='), 'MagicShot must have no download/search entry');
 assert(!html.includes('获取 MagicBoard') && !html.includes('获取 MagicFile'), 'Product cards must not repeat download jumps');
-assert(html.includes('assets/magicshot-wechat-trial-20261009.png') && html.includes('10 月 9 日'), 'MagicShot trial QR and expiry must be present');
+assert(html.includes('assets/magicshot-wechat-trial-20261009-052f0a5469.png') && html.includes('10 月 9 日'), 'MagicShot trial QR and expiry must be present');
 const script = await readFile(new URL('site.js', root), 'utf8');
 assert(!script.includes('download-links'), 'No auxiliary download links');
 assert(!JSON.stringify(data).includes('公证'), 'Download metadata only states supported environments');
