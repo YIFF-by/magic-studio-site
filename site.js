@@ -33,7 +33,7 @@ function playMotion(element, frames, options) {
   animation.finished.catch(() => {}).finally(() => runningMotion.delete(animation));
 }
 function bindSurfaceMotion(root = document) {
-  root.querySelectorAll('.product,.orb-product,.workflow-steps>div,.nav a,.hero-actions a,.download-action a').forEach(surface => {
+  root.querySelectorAll('.product,.orb-product,.workflow-steps>div,.nav a,.hero-actions a,.download-action a,.download-action button').forEach(surface => {
     if (surface.dataset.motionBound) return;
     surface.dataset.motionBound = 'true';
     surface.classList.add('motion-surface');
@@ -97,4 +97,26 @@ document.querySelectorAll('.help details').forEach(details => details.addEventLi
 }));
 motionPreference.addEventListener('change', () => {
   if (motionPreference.matches) runningMotion.forEach(animation => animation.cancel());
+});
+
+
+const trialDialog = document.querySelector('#shot-trial-dialog');
+const trialOpen = document.querySelector('#shot-trial-open');
+let previousOverflow = '';
+trialOpen.addEventListener('click', () => {
+  if (trialDialog.open) return;
+  previousOverflow = document.body.style.overflow;
+  trialDialog.showModal();
+  document.body.style.overflow = 'hidden';
+  playMotion(trialDialog, [{ opacity: .5, translate: '0 12px', scale: '.98' }, { opacity: 1, translate: '0 0', scale: '1' }], { duration: 240 });
+});
+trialDialog.querySelector('.trial-close').addEventListener('click', () => trialDialog.close());
+trialDialog.addEventListener('click', event => {
+  if (event.target !== trialDialog) return;
+  const bounds = trialDialog.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) trialDialog.close();
+});
+trialDialog.addEventListener('close', () => {
+  document.body.style.overflow = previousOverflow;
+  trialOpen.focus({ preventScroll: true });
 });

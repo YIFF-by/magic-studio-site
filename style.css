@@ -62,8 +62,21 @@
 @media(hover:hover) and (pointer:fine){.button.motion-surface:hover{transform:perspective(1000px) translate3d(var(--motion-x,0px),calc(var(--motion-y,0px) - 2px),0) rotateX(var(--motion-rx,0deg)) rotateY(var(--motion-ry,0deg))}}
 @media(prefers-reduced-motion:reduce){.button.motion-surface:hover{transform:none}}
 
-/* WeChat trial uses the same release-row hierarchy. Preserve the supplied QR pixels. */
-.shot-qr{line-height:0}
-.shot-qr>img{display:block;width:262px;max-width:100%;height:auto;border-radius:8px;background:#fff;margin-left:auto}
-.qr-expiry{margin-top:12px;color:var(--accent);font-size:11px}
-@media(max-width:720px){.shot-qr>img{margin-left:0}.shot-download .download-disclosure br{display:none}}
+/* WeChat trial matches the shared release row, with its QR disclosed on demand. */
+.download-action button{font-family:inherit;border:0;cursor:pointer}
+.download-action .button{width:148px;min-width:148px}
+.trial-dialog{width:min(420px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow:auto;padding:26px;margin:auto;border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--text);box-shadow:0 24px 80px rgba(0,0,0,.4)}
+.trial-dialog::backdrop{background:rgba(10,7,5,.76)}
+.trial-dialog-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.trial-dialog h2{font-size:20px;font-weight:550;letter-spacing:-.02em;line-height:1.5}
+.trial-dialog-heading p{font-size:12px;color:var(--muted);margin-top:5px}
+.trial-close{display:grid;place-items:center;flex:none;width:36px;height:36px;margin:-6px -6px 0 0;border:0;border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;transition:background 150ms,color 150ms}
+.trial-close:hover{background:var(--soft);color:var(--text)}
+.trial-close svg{width:20px;height:20px}
+.trial-qr{display:block;width:262px;max-width:100%;height:auto;margin:22px auto;border-radius:8px;background:#fff}
+#trial-instructions{font-size:13px;line-height:1.8;color:var(--muted)}
+.trial-expiry{margin-top:10px;color:var(--accent);font-size:12px}
+.trial-save{display:flex;align-items:center;justify-content:center;gap:12px;min-height:44px;margin-top:20px;padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:13px;color:var(--text);transition:border-color 150ms,color 150ms}
+.trial-save:hover{border-color:var(--accent);color:var(--accent)}
+.trial-save svg{width:16px;height:16px}
+@media(max-width:720px){.download-action .button{width:148px;min-width:148px}.trial-dialog{padding:22px}.trial-close{width:44px;height:44px}.trial-dialog h2{font-size:18px}}
