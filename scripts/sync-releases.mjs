@@ -17,7 +17,7 @@ for (const product of data.products) {
     ?? assets.find(asset => asset.name.startsWith(`${product.name}-`) && /macOS-universal\.zip$/.test(asset.name));
   const checksum = asset && assets.find(item => item.name === `${asset.name}.sha256`);
   if (!asset || !checksum || !asset.size) throw new Error(`${product.name}: 缺少通用安装包或校验文件，保留原清单`);
-  Object.assign(product, { version: product.releaseTagPrefix ? release.tag_name.slice(product.releaseTagPrefix.length) : release.tag_name.replace(/^v/, ''), publishedAt: new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Shanghai' }).format(new Date(release.published_at)), format: asset.name.endsWith('.pkg') ? 'PKG' : asset.name.endsWith('.dmg') ? 'DMG' : 'ZIP', sizeBytes: asset.size, downloadUrl: asset.browser_download_url, checksumUrl: checksum.browser_download_url });
+  Object.assign(product, { version: product.releaseTagPrefix ? release.tag_name.slice(product.releaseTagPrefix.length) : release.tag_name.match(/^v?(\d+\.\d+\.\d+)/)?.[1], publishedAt: new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Shanghai' }).format(new Date(release.published_at)), format: asset.name.endsWith('.pkg') ? 'PKG' : asset.name.endsWith('.dmg') ? 'DMG' : 'ZIP', sizeBytes: asset.size, downloadUrl: asset.browser_download_url, checksumUrl: checksum.browser_download_url });
   console.log(`${product.name} ${product.version} (${product.format})`);
 }
 // Atomic at the product-set level: do not overwrite the file if either lookup fails.
