@@ -100,23 +100,23 @@ motionPreference.addEventListener('change', () => {
 });
 
 
-const trialDialog = document.querySelector('#shot-trial-dialog');
-const trialOpen = document.querySelector('#shot-trial-open');
+const wechatDialog = document.querySelector('#shot-wechat-dialog');
+const wechatOpen = document.querySelector('#shot-wechat-open');
 let previousOverflow = '';
-trialOpen.addEventListener('click', () => {
-  if (trialDialog.open) return;
+wechatOpen.addEventListener('click', () => {
+  if (wechatDialog.open) return;
   previousOverflow = document.body.style.overflow;
-  trialDialog.showModal();
+  wechatDialog.showModal();
   document.body.style.overflow = 'hidden';
-  playMotion(trialDialog, [{ opacity: .5, translate: '0 12px', scale: '.98' }, { opacity: 1, translate: '0 0', scale: '1' }], { duration: 240 });
+  playMotion(wechatDialog, [{ opacity: .5, translate: '0 12px', scale: '.98' }, { opacity: 1, translate: '0 0', scale: '1' }], { duration: 240 });
 });
-trialDialog.querySelector('.trial-close').addEventListener('click', () => trialDialog.close());
-trialDialog.addEventListener('click', event => {
-  if (event.target !== trialDialog) return;
-  const bounds = trialDialog.getBoundingClientRect();
-  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) trialDialog.close();
+wechatDialog.querySelector('.wechat-close').addEventListener('click', () => wechatDialog.close());
+wechatDialog.addEventListener('click', event => {
+  if (event.target !== wechatDialog) return;
+  const bounds = wechatDialog.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) wechatDialog.close();
 });
-trialDialog.addEventListener('close', () => {
+wechatDialog.addEventListener('close', () => {
   document.body.style.overflow = previousOverflow;
-  trialOpen.focus({ preventScroll: true });
+  wechatOpen.focus({ preventScroll: true });
 });
