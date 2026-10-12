@@ -81,9 +81,8 @@ function observeArrivals(root = document) {
       const target = entry.target;
       playMotion(target, [{ opacity: .55, translate: '0 18px' }, { opacity: 1, translate: '0 0' }], { duration: 520 });
       // Present the sample workflow in order without creating interactive fake controls.
-      const steps = target.querySelectorAll('.board-shot,.file-record,.resolve-result,.workflow-steps>div');
+      const steps = target.querySelectorAll('.board-shot-row,[data-demo-row],.workflow-steps>div');
       steps.forEach((step, i) => playMotion(step, [{ opacity: .45, translate: '0 8px' }, { opacity: 1, translate: '0 0' }], { duration: 420, delay: Math.min(i*75,225) }));
-      target.querySelectorAll('.resolve-rail i').forEach((clip,i) => playMotion(clip, [{ scale: '.15 1', transformOrigin: 'left' }, { scale: '1 1', transformOrigin: 'left' }], { duration: 550, delay: i*90 }));
     });
   }, { threshold: .12 });
   targets.forEach(target => observer.observe(target));
