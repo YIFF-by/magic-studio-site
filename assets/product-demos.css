@@ -22,7 +22,7 @@
 .product-demo svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .product-demo strong { font-weight: 550; }
 .product-demo img { display: block; }
-.product-demo-caption { color: var(--muted); font-size: 10px; line-height: 1.5; margin-top: 10px; }
+.product-demo-caption { color: var(--muted); font-size: var(--type-caption, 12px); line-height: 1.6; margin-top: 12px; }
 .ui-shell { height: 378px; overflow: hidden; border: 1px solid var(--ui-line); border-radius: 10px; background: #1b1510; }
 .ui-selected { background: var(--ui-accent-soft); color: var(--ui-accent); }
 .ui-good { color: var(--ui-green); }
@@ -449,4 +449,86 @@
 }
 @media (max-width: 370px) {
   .product-demo { margin-inline: -18px; }
+}
+
+/* Give the key operation space instead of shrinking the entire workbench. */
+.product-demo { margin-top: 24px; align-self: start; }
+.product-demo .demo-wrap { min-width: 0; }
+@container (max-width: 430px) {
+  .ui-shell, .board-shell { height: 600px; }
+  .board-shell { grid-template-columns: minmax(0, 1fr); }
+  .ms-register-phone { height: 574px; }
+  .board-nav { display: none; }
+  .board-content { padding: 12px; }
+  .board-real-shot { grid-template-columns: 102px minmax(0, 1fr); }
+  .reference-frame { aspect-ratio: .95; }
+  .board-project strong { font-size: 12px; }
+  .board-steps > span { font-size: 10px; }
+  .script-strip { font-size: 12px; line-height: 1.6; }
+  .script-strip small, .shot-editor-fields label { font-size: 10px; }
+  .description-field > div, .shot-parameters span { font-size: 11px; }
+  .parameter-file span { font-size: 10px; }
+  .shot-type-switch > span { font-size: 10px; }
+  .shot-state { font-size: 9px; }
+  .reference-actions { font-size: 10px; }
+  .ms-form-field > span, .ms-more { font-size: 12px; }
+  .ms-form-field > div, .ms-stepper > strong, .ms-save > span { font-size: 13px; }
+  .ms-form-field > div.ms-marks { font-size: 11px; }
+  .mf-shell { grid-template-columns: minmax(0, 1fr); }
+  .mf-nav { display: none; }
+  .mf-heading small { font-size: 10px; }
+  .mf-heading > div { gap: 4px; }
+  .mf-heading { align-items: start; }
+  .mf-topbar > div { font-size: 12px; }
+  .mf-heading strong { font-size: 15px; }
+  .mf-export { font-size: 10px; }
+  .mf-tools { font-size: 10px; }
+  .mf-tools > b { display: none; }
+  .mf-scopes { font-size: 11px; }
+  .mf-filters { font-size: 10px; gap: 4px; }
+  .mf-filters > span { padding-inline: 5px; }
+  .mf-list-tools, .mf-pagination { font-size: 9px; }
+  .mf-record strong { font-size: 12px; }
+  .mf-record > div > span, .mf-record small { font-size: 10px; }
+  .mf-record > b { position: static; grid-column: 2; font-size: 10px; }
+  .mf-record { grid-template-columns: 44px minmax(0, 1fr); row-gap: 2px; }
+  .mf-split { grid-template-rows: 210px minmax(0, 1fr); }
+  .mf-inspector-heading strong { font-size: 12px; }
+  .mf-inspector-heading small, .mf-ready, .mf-inspector-footer small { font-size: 10px; }
+  .mf-inspector-footer > span { font-size: 11px; }
+  .mr-header > span { font-size: 9px; }
+  .mr-inputs { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .mr-inputs > div > span { font-size: 10px; }
+  .mr-inputs > div > div, .mr-inputs strong { font-size: 12px; }
+  .mr-inputs small { font-size: 10px; }
+  .mr-inputs > span.mr-preview { grid-column: 1; font-size: 11px; height: 30px; }
+  .mr-main { gap: 12px; }
+  .mr-results-heading small { font-size: 10px; }
+  .mr-filters { font-size: 10px; }
+  .mr-table-heading, .mr-result { grid-template-columns: 20px minmax(0, 1fr) minmax(0, 1fr) 40px; gap: 6px; }
+  .mr-table-heading > span:nth-child(4), .mr-result > span:nth-child(4) { display: none; }
+  .mr-table-heading { font-size: 10px; }
+  .mr-result, .mr-result strong, .mr-result > span:last-child { font-size: 10px; }
+  .mr-result { min-height: 65px; }
+  .mr-execution { align-items: start; flex-direction: column; gap: 8px; }
+  .mr-execution strong { font-size: 12px; }
+  .mr-execution small { font-size: 10px; }
+  .mr-execution > span { align-self: end; font-size: 12px; }
+}
+@container (max-width: 320px) {
+  .board-shell { height: auto; min-height: 600px; }
+  .board-real-shot { grid-template-columns: minmax(0, 1fr); }
+  .shot-reference { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 8px; }
+  .reference-actions { margin-top: 0; }
+  .reference-frame { align-self: start; }
+  .shot-type-switch { flex-basis: auto; order: initial; }
+  .shot-state { margin-left: 0; }
+  .shot-editor-head { gap: 6px; }
+  .shot-editor-fields { grid-template-columns: minmax(0, 1fr); }
+  .mr-header { flex-wrap: wrap; height: auto; min-height: 48px; padding-block: 8px; gap: 4px; }
+  .mr-header > div { font-size: 12px; }
+  .mr-header > span { font-size: 9px; }
+}
+@media (max-width: 440px) {
+  .product-demo { margin-inline: -12px; }
 }
