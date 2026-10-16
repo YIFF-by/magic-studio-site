@@ -16,7 +16,7 @@ for (const product of data.products) {
   assert.equal(product.checksumUrl, `${product.downloadUrl}.sha256`);
 }
 const shot = html.split('id="magicshot"')[1].split('</article>')[0];
-assert(shot.includes('已正式上线') && !shot.includes('href='), 'MagicShot must be launched and retain its informational product card');
+assert(shot.includes('在微信中') && !shot.includes('href='), 'MagicShot must remain WeChat-only and retain its informational product card');
 assert(!html.includes('获取 MagicBoard') && !html.includes('获取 MagicFile'), 'Product cards must not repeat download jumps');
 assert(html.includes('assets/magicshot-wechat-official-0fcbe3d6b4.jpg') && !/内测|体验版|待上线|10 月 9 日/.test(html), 'MagicShot must use the official code without trial or expiry copy');
 const script = await readFile(new URL('site.js', root), 'utf8');
