@@ -20,7 +20,9 @@ for (const product of data.products) {
   const versionTag = product.releaseTagPrefix ? release.tag_name.slice(product.releaseTagPrefix.length) : release.tag_name;
   const version = versionTag.match(/^v?(\d+\.\d+\.\d+)(?:$|[-+])/)?.[1];
   if (!version) throw new Error(`${product.name}: 版本标签无效，保留原清单`);
-  Object.assign(product, { version, publishedAt: new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Shanghai' }).format(new Date(release.published_at)), format: asset.name.endsWith('.pkg') ? 'PKG' : asset.name.endsWith('.dmg') ? 'DMG' : 'ZIP', sizeBytes: asset.size, downloadUrl: asset.browser_download_url, checksumUrl: checksum.browser_download_url });
+  const updatedAt = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/New_York' }).format(new Date(asset.updated_at || release.published_at));
+  Object.assign(product, { version, updatedAt, format: asset.name.endsWith('.pkg') ? 'PKG' : asset.name.endsWith('.dmg') ? 'DMG' : 'ZIP', sizeBytes: asset.size, downloadUrl: asset.browser_download_url, checksumUrl: checksum.browser_download_url });
+  delete product.publishedAt;
   console.log(`${product.name} ${product.version} (${product.format})`);
 }
 // Atomic at the product-set level: do not overwrite the file if either lookup fails.

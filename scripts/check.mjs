@@ -10,6 +10,8 @@ for (const match of html.matchAll(/(?:src|href)="((?:assets\/|style\.css|site\.j
 assert.deepEqual(data.products.map(product => product.id), ['magicboard', 'magicfile', 'magicresolve']);
 for (const product of data.products) {
   assert(product.sizeBytes > 0 && /^\d+\.\d+\.\d+$/.test(product.version));
+  assert(/^\d{4}-\d{2}-\d{2}$/.test(product.updatedAt), 'Missing package update date');
+  assert(!Object.hasOwn(product, 'publishedAt'), 'Use package update dates');
   for (const key of ['downloadUrl', 'checksumUrl', 'guideUrl', 'historyUrl']) assert.equal(new URL(product[key]).protocol, 'https:');
   assert.equal(product.checksumUrl, `${product.downloadUrl}.sha256`);
 }
@@ -18,6 +20,7 @@ assert(shot.includes('已正式上线') && !shot.includes('href='), 'MagicShot m
 assert(!html.includes('获取 MagicBoard') && !html.includes('获取 MagicFile'), 'Product cards must not repeat download jumps');
 assert(html.includes('assets/magicshot-wechat-official-0fcbe3d6b4.jpg') && !/内测|体验版|待上线|10 月 9 日/.test(html), 'MagicShot must use the official code without trial or expiry copy');
 const script = await readFile(new URL('site.js', root), 'utf8');
+assert(script.includes(' 更新</small>') && !script.includes(' 发布</small>'), 'Download dates must be labeled as updates');
 assert(!script.includes('download-links'), 'No auxiliary download links');
 assert(!JSON.stringify(data).includes('公证'), 'Download metadata only states supported environments');
 console.log('Static assets, navigation, release manifest and MagicShot status verified.');
