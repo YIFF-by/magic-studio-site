@@ -104,3 +104,19 @@ h2 { font-size: clamp(30px, 3.2vw, 40px); }
 .download-name h3 { font-size: 22px; }
 @media (min-width: 1500px) { .hero { min-height: 660px; } }
 @media (max-width: 720px) { .hero { min-height: 0; gap: 32px; } .hero h1 { font-size: 56px; } .orb-product { min-height: 62px; align-items: center; } .product-tagline { margin-top: 16px; } }
+
+/* Official feedback group follows the footer contact alignment. */
+.footer-contact{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:16px 24px;margin-left:auto;min-width:0;max-width:100%}
+.feedback-group{display:inline-flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:4px 10px;max-width:100%;padding:8px 0;border:0;background:transparent;color:var(--muted);font:inherit;font-size:14px;line-height:1.7;text-align:left;cursor:pointer}
+.feedback-group strong{color:var(--text);font-weight:550;font-variant-numeric:tabular-nums;white-space:nowrap;user-select:all}
+.feedback-copy{min-width:3em;color:var(--accent);white-space:nowrap}
+.feedback-group:hover strong{color:var(--accent)}
+.feedback-group:focus-visible{outline:2px solid var(--accent);outline-offset:5px;border-radius:3px}
+@media(max-width:900px){.footer-contact{flex-basis:100%;justify-content:flex-start;margin-left:0;gap:8px 24px}}
+@media(max-width:600px){
+  .feedback-group{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:2px;width:100%}
+  .feedback-group>span:first-child{grid-column:1/-1}
+  .feedback-group strong{grid-column:1;grid-row:2}
+  .feedback-copy{grid-column:2;grid-row:2;text-align:right}
+  .footer-contact{align-items:flex-start}
+}

@@ -119,3 +119,23 @@ wechatDialog.addEventListener('close', () => {
   document.body.style.overflow = previousOverflow;
   wechatOpen.focus({ preventScroll: true });
 });
+
+const feedbackGroup = document.querySelector('#feedback-group');
+const feedbackNumber = document.querySelector('#feedback-group-number');
+const feedbackCopy = feedbackGroup?.querySelector('.feedback-copy');
+let feedbackReset;
+feedbackGroup?.addEventListener('click', async () => {
+  clearTimeout(feedbackReset);
+  try {
+    await navigator.clipboard.writeText(feedbackNumber.textContent.trim());
+    feedbackCopy.textContent = '已复制';
+  } catch {
+    const range = document.createRange();
+    range.selectNodeContents(feedbackNumber);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    feedbackCopy.textContent = '请复制';
+  }
+  feedbackReset = setTimeout(() => { feedbackCopy.textContent = '复制'; }, 3000);
+});

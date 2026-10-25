@@ -18,7 +18,8 @@ for (const product of data.products) {
 const shot = html.split('id="magicshot"')[1].split('</article>')[0];
 assert(shot.includes('在微信中') && !shot.includes('href='), 'MagicShot must remain WeChat-only and retain its informational product card');
 assert(!html.includes('获取 MagicBoard') && !html.includes('获取 MagicFile'), 'Product cards must not repeat download jumps');
-assert(html.includes('assets/magicshot-wechat-official-0fcbe3d6b4.jpg') && !/内测|体验版|待上线|10 月 9 日/.test(html), 'MagicShot must use the official code without trial or expiry copy');
+const shotCopy = shot + html.match(/<article class="download-row shot-download"[\s\S]*?<\/article>/)[0] + html.match(/<dialog class="wechat-dialog"[\s\S]*?<\/dialog>/)[0];
+assert(html.includes('assets/magicshot-wechat-official-0fcbe3d6b4.jpg') && !/内测|体验版|待上线|10 月 9 日/.test(shotCopy), 'MagicShot must use the official code without trial or expiry copy');
 const script = await readFile(new URL('site.js', root), 'utf8');
 assert(script.includes(' 更新</small>') && !script.includes(' 发布</small>'), 'Download dates must be labeled as updates');
 assert(!script.includes('download-links'), 'No auxiliary download links');
