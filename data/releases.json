@@ -34,16 +34,16 @@
       "name": "MagicResolve",
       "repository": "YIFF-by/magic-studio-site",
       "releaseTagPrefix": "magicresolve-v",
-      "version": "0.23.50",
+      "version": "0.23.57",
       "format": "PKG",
-      "sizeBytes": 343696571,
-      "downloadUrl": "https://github.com/YIFF-by/magic-studio-site/releases/download/magicresolve-v0.23.50/MagicResolve-0.23.50-Mac-plugin.pkg",
-      "checksumUrl": "https://github.com/YIFF-by/magic-studio-site/releases/download/magicresolve-v0.23.50/MagicResolve-0.23.50-Mac-plugin.pkg.sha256",
-      "guideUrl": "https://github.com/YIFF-by/magic-studio-site/releases/tag/magicresolve-v0.23.50",
+      "sizeBytes": 343704218,
+      "downloadUrl": "https://github.com/YIFF-by/magic-studio-site/releases/download/magicresolve-v0.23.57/MagicResolve-0.23.57-Mac-plugin.pkg",
+      "checksumUrl": "https://github.com/YIFF-by/magic-studio-site/releases/download/magicresolve-v0.23.57/MagicResolve-0.23.57-Mac-plugin.pkg.sha256",
+      "guideUrl": "https://github.com/YIFF-by/magic-studio-site/releases/tag/magicresolve-v0.23.57",
       "historyUrl": "https://github.com/YIFF-by/magic-studio-site/releases",
       "platformLabel": "macOS · 达芬奇插件",
       "supportNote": "已验证：Apple 芯片 Mac · DaVinci Resolve Studio 21.1。",
-      "updatedAt": "2026-11-27"
+      "updatedAt": "2026-11-28"
     }
   ]
 }
